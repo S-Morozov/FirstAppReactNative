@@ -3,24 +3,22 @@ import {StatusBar} from 'expo-status-bar';
 import List from './components/List';
 import ListItem from './components/ListItem';
 
-
 const App = () => {
- return (
-   <>
+  return (
+    <>
       <SafeAreaView style={styles.container}>
-              <List/>
-                <ListItem/>
+        <List />
+        <ListItem />
       </SafeAreaView>
-   <StatusBar style="auto"/>
-   </>
- );
+      <StatusBar style="auto" />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
- container: {
-   flex: 1,
- },
-
+  container: {
+    flex: 1,
+  },
 });
 
 export default App;
