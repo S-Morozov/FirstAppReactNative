@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { FlatList } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {FlatList} from 'react-native';
 import ListItem from './ListItem';
 
-const url = 'https://raw.githubusercontent.com/mattpe/wbma/master/docs/assets/test.json';
+const url =
+  'https://raw.githubusercontent.com/mattpe/wbma/master/docs/assets/test.json';
 
 const List = () => {
   const [mediaArray, setMediaArray] = useState([]);
@@ -15,19 +16,21 @@ const List = () => {
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
-        setMediaArray(json); 
+        setMediaArray(json);
       } catch (error) {
         console.error('Error loading media:', error);
       }
     };
 
     loadMedia();
-  }, []); 
+  }, []);
   return (
     <FlatList
       data={mediaArray}
-      renderItem={({ item }) => <ListItem singleMedia={item} />}
-      keyExtractor={(item) => (item.key ? item.key.toString() : item.filename.toString())}
+      renderItem={({item}) => <ListItem singleMedia={item} />}
+      keyExtractor={(item) =>
+        item.key ? item.key.toString() : item.filename.toString()
+      }
     />
   );
 };
