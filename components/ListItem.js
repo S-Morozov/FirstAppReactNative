@@ -40,7 +40,7 @@ const ListItem = ({ singleMedia }) => {
         },
 
         textContainer: {
-          marginLeft: 5,
+          marginLeft: 10,
           flex: 1,
         },
         title: {
