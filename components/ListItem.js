@@ -1,6 +1,6 @@
 import {Image, Text, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {mediaUrl} from '../utils/app-config';
+import {mediaUrl} from './utils/appConfig';
 
 const ListItem = ({singleMedia}) => {
   return (
