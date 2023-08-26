@@ -12,6 +12,7 @@ const List = () => {
     const loadMedia = async () => {
       try {
         const response = await fetch(url);
+        console.log(response);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
