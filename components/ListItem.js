@@ -1,11 +1,9 @@
 import {Image, Text, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {mediaUrl} from './utils/appConfig';
-import HeaderBackground from './HeaderBackground';
 
 const ListItem = ({singleMedia, navigation}) => {
   return (
-  
     <TouchableOpacity
       onPress={() => {
         console.log('touched!', singleMedia.title);
@@ -19,7 +17,6 @@ const ListItem = ({singleMedia, navigation}) => {
       <Text>{singleMedia.title}</Text>
       <Text>{singleMedia.description}</Text>
     </TouchableOpacity>
-
   );
 };
 
