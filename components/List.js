@@ -1,6 +1,6 @@
 import {FlatList} from 'react-native';
 import ListItem from './ListItem';
-import {useMedia} from './hooks/ApiHooks';
+import {useMedia} from '../hooks/ApiHooks';
 import PropTypes from 'prop-types';
 
 const List = ({navigation}) => {

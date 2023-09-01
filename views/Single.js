@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Platform, SafeAreaView, StyleSheet, Text, Image} from 'react-native';
-import {mediaUrl} from '../components/utils/appConfig';
+import {mediaUrl} from '../utils/appConfig';
 
 const Single = ({route, navigation}) => {
   console.log('route params', route.params);
