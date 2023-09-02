@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Image, Platform, SafeAreaView, StyleSheet, Text} from 'react-native';
-import {mediaUrl} from '../utils/app-config';
+import {mediaUrl} from '../utils/appConfig';
 import {formatDate} from '../utils/functions';
 
 const Single = ({route, navigation}) => {
