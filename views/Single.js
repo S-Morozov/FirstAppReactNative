@@ -1,20 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Platform, SafeAreaView, StyleSheet, Text, Image} from 'react-native';
+import {Image, Platform, SafeAreaView, StyleSheet, Text} from 'react-native';
 import {mediaUrl} from '../utils/appConfig';
+import {formatDate} from '../utils/functions';
 
 const Single = ({route, navigation}) => {
-  console.log('route params', route.params);
-  const singleMedia = route.params;
-
+  // console.log('route params', route.params);
+  const {
+    title,
+    description,
+    filename,
+    time_added: timeAdded,
+    user_id: userId,
+    filesize,
+  } = route.params;
+  // Show full image and metadata
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        source={{uri: mediaUrl + singleMedia.thumbnails.w160}}
-        style={styles.image}
-      />
-      <Text>{singleMedia.title}</Text>
-      <Text>{singleMedia.description}</Text>
+      <Text style={styles.title}>{title}</Text>
+      <Image style={styles.image} source={{uri: mediaUrl + filename}} />
+      <Text>
+        Uploaded at: {formatDate(timeAdded)} by user: {userId}
+      </Text>
+      <Text>{description}</Text>
+      <Text>{Math.round(filesize / 1024)} kB</Text>
     </SafeAreaView>
   );
 };
@@ -27,10 +36,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  title: {
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
   image: {
-    height: 300,
     width: 300,
+    height: 300,
   },
 });
 
