@@ -4,13 +4,14 @@ import {Controller, useForm} from 'react-hook-form';
 import {Card, Button, Text, Input} from '@rneui/themed';
 
 const RegisterForm = () => {
-  const {postUser} = useUser();
+  const {postUser, checkUsername} = useUser();
   const {
     control,
     handleSubmit,
     formState: {errors},
   } = useForm({
     defaultValues: {username: '', password: '', email: '', full_name: ''},
+    mode: 'onBlur',
   });
 
   const register = async (registerData) => {
@@ -29,13 +30,26 @@ const RegisterForm = () => {
       <Card.Title>Registration Form</Card.Title>
       <Controller
         control={control}
-        rules={{required: true, minLength: 3}}
+        rules={{
+          required: true,
+          minLength: 3,
+          validate: async (value) => {
+            try {
+              const isAvailable = await checkUsername(value);
+              console.log('username available?', value, isAvailable);
+              return isAvailable ? isAvailable : 'Username taken';
+            } catch (error) {
+              console.error(error);
+            }
+          },
+        }}
         render={({field: {onChange, onBlur, value}}) => (
           <Input
             placeholder="Username"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            errorMessage={errors.username?.message}
           />
         )}
         name="username"
@@ -45,6 +59,7 @@ const RegisterForm = () => {
       {errors.username?.type === 'minLength' && (
         <Text>min length is 3 characters</Text>
       )}
+      <Text>{errors.username?.message}</Text>
       <Controller
         control={control}
         rules={{required: true, minLength: 5}}
