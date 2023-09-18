@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {mediaUrl} from '../utils/appConfig';
+import {mediaUrl} from '../utils/app-config';
 import {Avatar, ListItem as RNEListItem} from '@rneui/themed';
 
 const ListItem = ({singleMedia, navigation}) => {

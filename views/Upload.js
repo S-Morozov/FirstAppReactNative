@@ -3,7 +3,7 @@ import {Controller, useForm} from 'react-hook-form';
 import {Alert, StyleSheet} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import {useContext, useState} from 'react';
-import {appId, placeholderImage} from '../utils/appConfig';
+import {appId, placeholderImage} from '../utils/app-config';
 import {Video} from 'expo-av';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMedia, useTag} from '../hooks/ApiHooks';
